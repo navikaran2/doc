@@ -17,9 +17,39 @@
         h1 {
             color: #333;
         }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome, Navikaran!</h1>
+    <div>
+        <h1>Welcome, Navikaran!</h1>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // Check if the token exists
+        const authToken = localStorage.getItem("authToken");
+        if (authToken !== "secureToken123") {
+            // Redirect to login page if token is invalid
+            window.location.href = "index.html";
+        }
+
+        function logout() {
+            // Clear the token and redirect to login
+            localStorage.removeItem("authToken");
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
