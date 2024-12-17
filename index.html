@@ -58,12 +58,13 @@
         function login() {
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            const errorDiv = document.getElementById("error");
 
             if (username === "navikaran" && password === "1234") {
-                window.location.href = "welcome.html"; // Redirect to a welcome page
+                // Store token in localStorage
+                localStorage.setItem("authToken", "secureToken123");
+                window.location.href = "welcome.html"; // Redirect to welcome page
             } else {
-                errorDiv.textContent = "Invalid username or password!";
+                document.getElementById("error").textContent = "Invalid username or password!";
             }
         }
     </script>
